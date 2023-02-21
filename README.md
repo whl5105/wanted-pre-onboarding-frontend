@@ -7,7 +7,6 @@
     
 ## 📖 프로젝트 설명 & 데모영상
 
-프로젝트 링크 
 <div align="center">
   <h3><a href="https://wanted-pre-onboarding-frontend-whl5105.vercel.app" target="_blank">🏠 Homepage</a></h3>
   <br/>
