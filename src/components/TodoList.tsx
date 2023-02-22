@@ -16,15 +16,12 @@ export default function TodoList() {
   const { todosState, dispatch } = useContext(TodosStateContext);
 
   const readTodos = async () =>
-    await instance
-      .get<Todo[]>(`/todos`)
-      .then((res) =>
-        dispatch({
-          type: "READ",
-          data: res,
-        })
-      )
-      .catch((error) => console.log(error));
+    await instance.get<Todo[]>(`/todos`).then((res) =>
+      dispatch({
+        type: "READ",
+        data: res,
+      })
+    );
 
   useEffect(() => {
     readTodos();

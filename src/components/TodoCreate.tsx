@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
 import styled from "styled-components";
-import { TodosStateContext } from '../reducer/TodosReducer';
+import { TodosStateContext } from "../reducer/TodosReducer";
 
 const Base = styled.div`
   margin: 10px 0;
@@ -26,20 +26,17 @@ const SubmitBtn = styled.button`
   border-radius: 4px;
 `;
 export default function TodoCreate() {
-  const {  dispatch } = useContext(TodosStateContext);
+  const { dispatch } = useContext(TodosStateContext);
   const [todo, setTodo] = useState<string>("");
 
   const createTodo = async () =>
-    await instance
-      .post<Todo>(`/todos`, { todo })
-      .then((res) => {
-        dispatch({
-          type: "CREATE",
-          data: res,
-        });
-        setTodo("");
-      })
-      .catch((error) => console.log(error));
+    await instance.post<Todo>(`/todos`, { todo }).then((res) => {
+      dispatch({
+        type: "CREATE",
+        data: res,
+      });
+      setTodo("");
+    });
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();

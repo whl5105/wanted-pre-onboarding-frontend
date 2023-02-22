@@ -8,7 +8,7 @@ import {
   AiOutlineDelete,
 } from "react-icons/ai";
 import { AiOutlineEdit } from "react-icons/ai";
-import { TodosStateContext } from '../reducer/TodosReducer';
+import { TodosStateContext } from "../reducer/TodosReducer";
 
 const Base = styled.li`
   display: flex;
@@ -58,22 +58,19 @@ const Text = styled.p<{ isCompleted: boolean }>`
 `;
 
 export default function TodoItem(todo: Todo) {
-  const {  dispatch } = useContext(TodosStateContext);
+  const { dispatch } = useContext(TodosStateContext);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [value, setValue] = useState<string>(todo.todo);
   const [isTodoChange, setIsTodoChange] = useState<boolean>(false);
 
   //DELETE
   const deleteTodo = async () =>
-    await instance
-      .delete<Todo>(`/todos/${todo.id}`)
-      .then(() => {
-        dispatch({
-          type: "DELETE",
-          id: todo.id,
-        });
-      })
-      .catch((error) => console.log(error));
+    await instance.delete<Todo>(`/todos/${todo.id}`).then(() => {
+      dispatch({
+        type: "DELETE",
+        id: todo.id,
+      });
+    });
 
   //UPDATE : todo
   const updateTodo = async () => {
@@ -87,8 +84,7 @@ export default function TodoItem(todo: Todo) {
           type: "UPDATE",
           data: res,
         })
-      )
-      .catch((error) => console.log(error));
+      );
   };
   //UPDATE : Completed
   const updateCompleted = async () => {
@@ -102,8 +98,7 @@ export default function TodoItem(todo: Todo) {
           type: "UPDATE",
           data: res,
         })
-      )
-      .catch((error) => console.log(error));
+      );
   };
   //Submit Form
   const onSubmit = (e: React.FormEvent) => {
