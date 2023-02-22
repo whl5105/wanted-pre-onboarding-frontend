@@ -8,7 +8,7 @@ const Title = styled.h1`
   ${({ theme }) => theme.common.Title};
 `;
 
-export default function Todo() {
+export default function TodoPage() {
   return (
     <TodosContextProvider>
       <Base>

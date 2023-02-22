@@ -8,9 +8,9 @@ import {
 //layout and pages
 import AuthLayout from "./layouts/AuthLayout";
 import App from "./layouts/App";
-import Todo from "./pages/Todo";
-import Signin from "./pages/Signin";
-import Signup from "./pages/Signup";
+import TodoPage from "./pages/TodoPage";
+import SigninPage from "./pages/SigninPage";
+import SignupPage from "./pages/SignupPage";
 
 const isCheckAuth = (): boolean =>
   localStorage.getItem("accessToken") ? true : false;
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<Navigate replace to="/" />} />
       <Route
         path="todo"
-        element={<Todo />}
+        element={<TodoPage />}
         loader={async () => {
           const isToken = isCheckAuth();
           if (!isToken) throw redirect("/signin");
@@ -37,8 +37,8 @@ const router = createBrowserRouter(
           return { isToken };
         }}
       >
-        <Route path="signin" element={<Signin />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="signin" element={<SigninPage />} />
+        <Route path="signup" element={<SignupPage />} />
       </Route>
     </Route>
   )

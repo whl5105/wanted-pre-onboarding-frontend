@@ -5,11 +5,11 @@ const Title = styled.h1`
   ${({ theme }) => theme.common.Title};
 `;
 
-export default function Signin() {
+export default function SignupPage() {
   return (
     <>
-      <Title>로그인</Title>
-      <AuthForm type="signin" />
+      <Title>회원가입</Title>
+      <AuthForm type="signup" />
     </>
   );
 }
