@@ -59,7 +59,11 @@ export default function AuthForm({ type }: Props) {
         password: formState.password,
       })
       .then(() => {
-        type === "signin" ? navigate("/todo") : navigate("/signin");
+        if (type === "signin") navigate("/todo");
+        else {
+          alert("회원가입 완료!");
+          navigate("/signin");
+        }
         dispatch({ type: "reset" });
       })
       .catch((error) => {
