@@ -1,9 +1,9 @@
 import { useReducer } from "react";
 import {
   TodosDispatchContext,
-  todosReducer,
+  TodosReducer,
   TodosStateContext,
-} from "../reducer/todosReducer";
+} from "../reducer/TodosReducer";
 import { Todo } from "../types";
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 export default function TodosContextProvider({ children }: Props) {
   const initialStateTodos: Array<Todo> = [];
-  const [todosState, dispatch] = useReducer(todosReducer, initialStateTodos);
+  const [todosState, dispatch] = useReducer(TodosReducer, initialStateTodos);
 
   return (
     <TodosStateContext.Provider value={todosState}>

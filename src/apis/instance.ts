@@ -14,9 +14,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 
 instance.interceptors.request.use((config) => {
   const accessToken = localStorage.getItem("accessToken");
-  if (accessToken) {
-    config.headers["Authorization"] = `Bearer ${accessToken}`;
-  }
+  if (accessToken) config.headers["Authorization"] = `Bearer ${accessToken}`;
   return config;
 });
 

@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import { Todo, TodoAction, TodosDispatch } from "../types";
 
 //reducer
-export function todosReducer(state: Todo[], action: TodoAction): Todo[] {
+export function TodosReducer(state: Todo[], action: TodoAction): Todo[] {
   switch (action.type) {
     case "READ":
       return (state = action.data);

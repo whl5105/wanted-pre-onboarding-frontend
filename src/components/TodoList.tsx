@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
 import TodoItem from "./TodoItem";
-import { useTodosDispatch, useTodosState } from "../reducer/todosReducer";
+import { useTodosDispatch, useTodosState } from "../reducer/TodosReducer";
 import styled from "styled-components";
 
 const Base = styled.div`

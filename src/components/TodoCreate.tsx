@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
-import { useTodosDispatch } from "../reducer/todosReducer";
+import { useTodosDispatch } from "../reducer/TodosReducer";
 import styled from "styled-components";
 
 const Base = styled.div`

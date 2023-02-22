@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
-import { useTodosDispatch } from "../reducer/todosReducer";
+import { useTodosDispatch } from "../reducer/TodosReducer";
 import styled, { css } from "styled-components";
 import {
   AiOutlineCheck,
@@ -61,7 +61,7 @@ export default function TodoItem(todo: Todo) {
   const dispatch = useTodosDispatch();
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [value, setValue] = useState<string>(todo.todo);
-  const [isTotoChange, setIsTotoChange] = useState<boolean>(false);
+  const [isTodoChange, setIsTodoChange] = useState<boolean>(false);
 
   //DELETE
   const deleteTodo = async () =>
@@ -110,12 +110,12 @@ export default function TodoItem(todo: Todo) {
     e.preventDefault();
     updateTodo();
     setIsEdit(false);
-    setIsTotoChange(false);
+    setIsTodoChange(false);
   };
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target.value;
     setValue(target);
-    target !== todo.todo ? setIsTotoChange(true) : setIsTotoChange(false);
+    target !== todo.todo ? setIsTodoChange(true) : setIsTodoChange(false);
   };
   return (
     <Base>
@@ -129,7 +129,7 @@ export default function TodoItem(todo: Todo) {
               value={value}
             />
             <SideBtn>
-              {isTotoChange && (
+              {isTodoChange && (
                 <Button data-testid="submit-button" type="submit">
                   <AiOutlineCheck size="20" color="gray" />
                 </Button>

@@ -7,14 +7,15 @@ export const initialStateForm: InputForm = {
   isPassword: false,
 };
 
+//정규식
 const regEmail: RegExp =
   /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 const regPassword: RegExp = /^[a-zA-Z\\d`~!@#$%^&*()-_=+]{8,20}$/;
-
+//유효성 검사 
 const emailCheck = (email: string): boolean => regEmail.test(email);
 const PasswordCheck = (password: string): boolean => regPassword.test(password);
-
-export function formReducer(state: InputForm, action: FormAction): InputForm {
+//FormReducer
+export function FormReducer(state: InputForm, action: FormAction): InputForm {
   switch (action.type) {
     case "email":
       return emailCheck(action.value)

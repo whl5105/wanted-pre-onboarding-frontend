@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import { instance } from "../apis/instance";
-import { formReducer, initialStateForm } from "../reducer/formReducer";
+import { FormReducer, initialStateForm } from "../reducer/FormReducer";
 import { User } from "../types";
 
 const Form = styled.form`
@@ -48,7 +48,7 @@ interface Props {
 
 export default function AuthForm({ type }: Props) {
   const navigate = useNavigate();
-  const [formState, dispatch] = useReducer(formReducer, initialStateForm);
+  const [formState, dispatch] = useReducer(FormReducer, initialStateForm);
 
   //submit
   const onSubmit = async (e: React.FormEvent) => {

@@ -14,8 +14,6 @@
   <img src="https://user-images.githubusercontent.com/73993670/218414613-58921363-4535-4186-818c-5e8cd80e43bc.gif" width="500" >
 </div>
 
-
-
 <br />
 <br />
 
