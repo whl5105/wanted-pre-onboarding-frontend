@@ -1,6 +1,7 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { Todo, TodoAction, TodosDispatch } from "../types";
 
+export const initialStateTodos: Array<Todo> = [];
 //reducer
 export function TodosReducer(state: Todo[], action: TodoAction): Todo[] {
   switch (action.type) {
@@ -26,20 +27,7 @@ export function TodosReducer(state: Todo[], action: TodoAction): Todo[] {
 }
 
 //context
-export const TodosStateContext = createContext<Todo[] | undefined>(undefined);
-export const TodosDispatchContext = createContext<TodosDispatch | undefined>(
-  undefined
-);
-
-//state_context
-export function useTodosState() {
-  const state = useContext(TodosStateContext);
-  if (!state) throw new Error("TodosProvider error");
-  return state;
-}
-//dispatch_context
-export function useTodosDispatch() {
-  const dispatch = useContext(TodosDispatchContext);
-  if (!dispatch) throw new Error("TodosProvider error");
-  return dispatch;
-}
+export const TodosStateContext = createContext<{
+  todosState: Todo[];
+  dispatch: TodosDispatch;
+}>({ todosState: initialStateTodos, dispatch: () => null });

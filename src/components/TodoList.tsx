@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
 import TodoItem from "./TodoItem";
-import { useTodosDispatch, useTodosState } from "../reducer/TodosReducer";
+import { TodosStateContext } from "../reducer/TodosReducer";
 import styled from "styled-components";
 
 const Base = styled.div`
@@ -13,8 +13,7 @@ const Base = styled.div`
 `;
 
 export default function TodoList() {
-  const todos = useTodosState();
-  const dispatch = useTodosDispatch();
+  const { todosState, dispatch } = useContext(TodosStateContext);
 
   const readTodos = async () =>
     await instance
@@ -33,7 +32,7 @@ export default function TodoList() {
 
   return (
     <Base>
-      {todos.map((todo) => (
+      {todosState.map((todo) => (
         <TodoItem
           key={todo.id}
           id={todo.id}

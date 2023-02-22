@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
-import { useTodosDispatch } from "../reducer/TodosReducer";
 import styled, { css } from "styled-components";
 import {
   AiOutlineCheck,
@@ -9,6 +8,7 @@ import {
   AiOutlineDelete,
 } from "react-icons/ai";
 import { AiOutlineEdit } from "react-icons/ai";
+import { TodosStateContext } from '../reducer/TodosReducer';
 
 const Base = styled.li`
   display: flex;
@@ -58,7 +58,7 @@ const Text = styled.p<{ isCompleted: boolean }>`
 `;
 
 export default function TodoItem(todo: Todo) {
-  const dispatch = useTodosDispatch();
+  const {  dispatch } = useContext(TodosStateContext);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [value, setValue] = useState<string>(todo.todo);
   const [isTodoChange, setIsTodoChange] = useState<boolean>(false);

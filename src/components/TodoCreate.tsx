@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { instance } from "../apis/instance";
 import { Todo } from "../types";
-import { useTodosDispatch } from "../reducer/TodosReducer";
 import styled from "styled-components";
+import { TodosStateContext } from '../reducer/TodosReducer';
 
 const Base = styled.div`
   margin: 10px 0;
@@ -26,7 +26,7 @@ const SubmitBtn = styled.button`
   border-radius: 4px;
 `;
 export default function TodoCreate() {
-  const dispatch = useTodosDispatch();
+  const {  dispatch } = useContext(TodosStateContext);
   const [todo, setTodo] = useState<string>("");
 
   const createTodo = async () =>
