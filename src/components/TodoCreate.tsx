@@ -52,7 +52,11 @@ export default function TodoCreate() {
           value={todo}
           placeholder="할일을 입력해주세요."
         />
-        <SubmitBtn data-testid="new-todo-add-button" type="submit">
+        <SubmitBtn
+          data-testid="new-todo-add-button"
+          type="submit"
+          disabled={todo.length > 0 ? false : true}
+        >
           추가
         </SubmitBtn>
       </Form>
